@@ -1,0 +1,58 @@
+package org.gsm.software.hktproject.di
+
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import org.gsm.software.hktproject.BuildConfig
+import org.gsm.software.hktproject.viewmodel.LoginViewModel
+import org.gsm.software.hktproject.viewmodel.MainViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
+
+
+val networkModule = module {
+    single {
+        okHttp()
+    }
+    single {
+        Retrofit.Builder()
+            .baseUrl(BuildConfig.BASE_URL)
+            .client(get())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+}
+
+val viewModelPart = module {
+    viewModel { MainViewModel(get()) }
+    viewModel { LoginViewModel(get()) }
+}
+
+private val requestBodyLoggerInterceptor: Interceptor
+    get() = HttpLoggingInterceptor().apply {
+        level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+        else HttpLoggingInterceptor.Level.NONE
+    }
+
+private val requestHeaderLoggerInterceptor: Interceptor
+    get() = HttpLoggingInterceptor().apply {
+        level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.HEADERS
+        else HttpLoggingInterceptor.Level.NONE
+    }
+
+
+private fun okHttp() = OkHttpClient.Builder()
+    //서버로부터의 응답까지의 시간이 읽기 시간 초과보다 크면 요청 실패로 판단한다.
+    .readTimeout(10, TimeUnit.SECONDS)
+    //서버로 요청을 시작한 후 15초가 지날 때 까지 데이터가 안오면 에러로 판단한다.
+    .connectTimeout(10,TimeUnit.SECONDS)
+    .addInterceptor(requestBodyLoggerInterceptor)
+    .addInterceptor(requestHeaderLoggerInterceptor)
+    .build()
+
+
+val myModule = listOf(networkModule, viewModelPart)
