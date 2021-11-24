@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.SignupActivity">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="106dp"
+            android:fontFamily="@font/notosanskrbold"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:text="바랭"/>
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/signup_namegrp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signup_emailgrp"
+            android:layout_marginTop="30dp"
+            app:passwordToggleEnabled="false">
+
+            <EditText
+                android:id="@+id/signup_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:background="@color/white"
+                android:layout_marginEnd="70dp"
+                android:textColor="#B47DC7"
+                android:maxLength="12"
+                android:textColorHint="#C4C4C4"
+                android:hint="이메일을 입력하세요." />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_emailgrp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            android:layout_marginTop="70dp"
+            app:passwordToggleEnabled="false">
+
+            <EditText
+                android:id="@+id/signup_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:background="@color/white"
+                android:layout_marginEnd="70dp"
+                android:textColor="#B47DC7"
+                android:maxLength="8"
+                android:textColorHint="#C4C4C4"
+                android:hint="닉네임을 입력하세요." />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_pwgrp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signup_namegrp"
+            android:layout_marginTop="30dp"
+            app:passwordToggleEnabled="false">
+
+            <EditText
+                android:id="@+id/signup_pw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:background="@color/white"
+                android:layout_marginEnd="70dp"
+                android:textColor="#B47DC7"
+                android:maxLength="14"
+                android:textColorHint="#C4C4C4"
+                android:hint="비밀번호을 입력하세요." />
+        </com.google.android.material.textfield.TextInputLayout>
+        
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="264dp"
+            android:layout_height="56dp"
+            android:background="@drawable/signupline"
+            app:layout_constraintTop_toBottomOf="@id/signup_pwgrp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
