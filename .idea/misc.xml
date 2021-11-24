@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/s2000/AndroidStudioProjects/9Tears-Android/app/src/main/res/drawable/sign_btn_background.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/s2000/AndroidStudioProjects/9Tears-Android/app/src/main/res/drawable/signupline.xml" value="0.14791666666666667" />
+        <entry key="..\:/Users/s2000/AndroidStudioProjects/9Tears-Android/app/src/main/res/layout/activity_lankcomment.xml" value="0.25625" />
+        <entry key="..\:/Users/s2000/AndroidStudioProjects/9Tears-Android/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/s2000/AndroidStudioProjects/9Tears-Android/app/src/main/res/layout/activity_main.xml" value="0.18125" />
+        <entry key="..\:/Users/s2000/AndroidStudioProjects/9Tears-Android/app/src/main/res/layout/activity_signup.xml" value="0.20963541666666666" />
         <entry key="..\:/Users/s2000/AndroidStudioProjects/HktProject/app/src/main/res/layout/activity_login.xml" value="0.25625" />
       </map>
     </option>
