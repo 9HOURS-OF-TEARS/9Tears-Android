@@ -51,63 +51,84 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_pw"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/signup_email"
-            app:passwordToggleEnabled="false">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:hint="비밀번호를 입력하세요."
-                android:inputType="textPassword"
-                android:maxLength="12"
-                android:textColor="#B47DC7"
-                android:textColorHint="#C4C4C4" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_email"
+            android:id="@+id/signup_nickname_ly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title"
+            app:errorEnabled="true"
+            android:hint="닉네임을 입력하세요."
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="8"
             app:passwordToggleEnabled="false">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signup_nickname"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:hint="이메일을 입력하세요."
                 android:maxLength="8"
+                android:textColor="#B47DC7"
+                android:textColorHint="#C4C4C4" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_email_ly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signup_nickname_ly"
+            android:layout_marginTop="30dp"
+            android:hint="이메일을 입력하세요."
+            app:errorEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:counterMaxLength="20"
+            app:counterEnabled="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signup_email"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:maxLength="20"
+                android:inputType="textEmailAddress"
                 android:textColor="#B47DC7"
                 android:textColorHint="#C4C4C4" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_nickname"
+            android:id="@+id/signup_pw_ly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/signup_pw"
-            app:passwordToggleEnabled="false">
+            app:layout_constraintTop_toBottomOf="@id/signup_email_ly"
+            android:hint="비밀번호를 입력하세요."
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:counterEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:counterMaxLength="20"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signup_pw"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:hint="닉네임을 입력하세요."
                 android:maxLength="14"
+                android:inputType="textPassword"
                 android:textColor="#B47DC7"
                 android:textColorHint="#C4C4C4" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -122,7 +143,7 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/signup_nickname" />
+            app:layout_constraintTop_toBottomOf="@id/signup_pw_ly" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
