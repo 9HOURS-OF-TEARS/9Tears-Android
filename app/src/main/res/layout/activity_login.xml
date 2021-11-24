@@ -23,10 +23,32 @@
             android:layout_marginTop="100dp"
             android:fontFamily="@font/black"
             android:text="바랭"
-            android:textColor="#947BF5"
+            android:textColor="@color/sign_text_color"
             android:textSize="60sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/compliment"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/pname"
+            android:layout_marginTop="95dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/complimentText"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="바른 랭킹\n : 바르고 고운 말로 소통해요 "
+            android:fontFamily="@font/black"
+            android:textSize="16sp"
+            android:layout_marginStart="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pname"
+            android:textColor="@color/sign_text_color"
+            />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@id/login_email"
@@ -72,6 +94,7 @@
             android:background="@drawable/sign_btn_background"
             android:fontFamily="@font/notosanskrbold"
             android:text="Log in"
+            android:onClick="@{()->activity.login()}"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,6 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="회원이 아니신가요?"
+            android:onClick="@{()->activity.goSignup()}"
             android:textColor="#8DA0E5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

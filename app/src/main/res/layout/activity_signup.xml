@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="activity"
+            type="org.gsm.software.hktproject.view.activity.SignupActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,97 +19,110 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/black"
+            android:text="바랭"
+            android:textColor="@color/sign_text_color"
+            android:textSize="60sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="106dp"
-            android:fontFamily="@font/notosanskrbold"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            android:text="바랭"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/complimentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="95dp"
+            android:src="@drawable/compliment"
+            app:layout_constraintLeft_toRightOf="@id/title"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:fontFamily="@font/black"
+            android:text="바른 랭킹\n : 바르고 고운 말로 소통해요 "
+            android:textColor="@color/sign_text_color"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
 
         <com.google.android.material.textfield.TextInputLayout
-
-            android:id="@+id/signup_namegrp"
-            android:layout_width="match_parent"
+            android:id="@+id/signup_pw"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/signup_emailgrp"
-            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@id/signup_email"
             app:passwordToggleEnabled="false">
 
-            <EditText
-                android:id="@+id/signup_name"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
                 android:background="@color/white"
-                android:layout_marginEnd="70dp"
-                android:textColor="#B47DC7"
+                android:hint="비밀번호를 입력하세요."
+                android:inputType="textPassword"
                 android:maxLength="12"
-                android:textColorHint="#C4C4C4"
-                android:hint="이메일을 입력하세요." />
+                android:textColor="#B47DC7"
+                android:textColorHint="#C4C4C4" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_emailgrp"
-            android:layout_width="match_parent"
+            android:id="@+id/signup_email"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title"
-            android:layout_marginTop="70dp"
             app:passwordToggleEnabled="false">
 
             <EditText
-                android:id="@+id/signup_email"
-                android:layout_width="match_parent"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
                 android:background="@color/white"
-                android:layout_marginEnd="70dp"
-                android:textColor="#B47DC7"
+                android:hint="이메일을 입력하세요."
                 android:maxLength="8"
-                android:textColorHint="#C4C4C4"
-                android:hint="닉네임을 입력하세요." />
+                android:textColor="#B47DC7"
+                android:textColorHint="#C4C4C4" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_pwgrp"
-            android:layout_width="match_parent"
+            android:id="@+id/signup_nickname"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/signup_namegrp"
-            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@id/signup_pw"
             app:passwordToggleEnabled="false">
 
-            <EditText
-                android:id="@+id/signup_pw"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
                 android:background="@color/white"
-                android:layout_marginEnd="70dp"
-                android:textColor="#B47DC7"
+                android:hint="닉네임을 입력하세요."
                 android:maxLength="14"
-                android:textColorHint="#C4C4C4"
-                android:hint="비밀번호을 입력하세요." />
+                android:textColor="#B47DC7"
+                android:textColorHint="#C4C4C4" />
         </com.google.android.material.textfield.TextInputLayout>
-        
+
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="264dp"
             android:layout_height="56dp"
-            android:background="@drawable/signupline"
-            app:layout_constraintTop_toBottomOf="@id/signup_pwgrp"
             android:layout_marginTop="30dp"
+            android:background="@drawable/sign_btn_background"
+            android:onClick="@{()->activity.signup()}"
+            android:text="Sign up"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/signup_nickname" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
