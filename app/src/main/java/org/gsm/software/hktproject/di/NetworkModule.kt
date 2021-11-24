@@ -4,8 +4,10 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.gsm.software.hktproject.BuildConfig
+import org.gsm.software.hktproject.model.users.UserApi
 import org.gsm.software.hktproject.viewmodel.LoginViewModel
 import org.gsm.software.hktproject.viewmodel.MainViewModel
+import org.gsm.software.hktproject.viewmodel.SinupViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -24,12 +26,18 @@ val networkModule = module {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+    single {
+        get<Retrofit>().create(
+            UserApi::class.java
+        )
+    }
 
 }
 
 val viewModelPart = module {
     viewModel { MainViewModel(get()) }
     viewModel { LoginViewModel(get()) }
+    viewModel { SinupViewModel(get()) }
 }
 
 private val requestBodyLoggerInterceptor: Interceptor
