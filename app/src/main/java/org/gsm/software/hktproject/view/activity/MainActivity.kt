@@ -1,10 +1,12 @@
 package org.gsm.software.hktproject.view.activity
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.Slide
 import android.view.Gravity
+import android.view.Menu
 import android.view.MenuItem
 import android.view.Window
 import androidx.core.view.GravityCompat
@@ -59,22 +61,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     // menubar 생성
-    fun actionBar() {
+    private fun actionBar() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        //메뉴바 왼쪽 설정
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.menubar)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         TODO("Not yet implemented")
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu,menu)
+        return true
+    }
+
     //메뉴 버튼
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
+        when (item?.itemId) {
+            R.id.menuAction -> {
                 binding.drawerLayout.openDrawer(GravityCompat.END)
                 return true
             }

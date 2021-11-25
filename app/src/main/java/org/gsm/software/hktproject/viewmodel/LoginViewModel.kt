@@ -20,11 +20,11 @@ class LoginViewModel(private val api : UserApi):ViewModel(){
 
 
     fun login(id:String,password:String){
-        if(id.isNotEmpty() || password.isNotEmpty() ){
+        if(id.isEmpty() || password.isEmpty() ){
             _toastM.value = "아이디와 비밀번호를 모두 입력해주세요"
             _registerResultInt.value = 1
         }else{
-            api.login(LoginRequest(id = id,pwd = password)).enqueue(object : Callback<LoginResponse>{
+            api.login(LoginRequest(id = id,password = password)).enqueue(object : Callback<LoginResponse>{
                 override fun onResponse(
                     call: Call<LoginResponse>,
                     response: Response<LoginResponse>

@@ -6,14 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import org.gsm.software.hktproject.R
+import org.gsm.software.hktproject.adapter.RecentlyRecyclerAdapter
+import org.gsm.software.hktproject.databinding.RecentlyPostFragmentBinding
+import org.gsm.software.hktproject.util.showVertical
+import org.gsm.software.hktproject.viewmodel.MainViewModel
 import org.gsm.software.hktproject.viewmodel.RecentlyPostViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class Recently_Post : Fragment() {
-
-    companion object {
-        fun newInstance() = Recently_Post()
-    }
+    lateinit var binding: RecentlyPostFragmentBinding
+    private val mainViewModel: MainViewModel by viewModel()
 
     private lateinit var viewModel: RecentlyPostViewModel
 
@@ -21,7 +25,9 @@ class Recently_Post : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.recently__post_fragment, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.recently__post_fragment, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -30,4 +36,27 @@ class Recently_Post : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    private fun observeViewModel() {
+        if (mainViewModel.getMyPostNull.value == true) {
+            binding.recentlyPostRecyclerView.visibility = View.GONE
+            binding.notFound.visibility = View.VISIBLE
+        }
+
+        mainViewModel.getMyPostResponse.observe(requireActivity(), androidx.lifecycle.Observer {
+            //게시물 있음
+            if (!it.isEmpty) {
+                initRecyclerView()
+                mainViewModel.setGetMyPostNull(false)
+            } else {
+                //게시물 없음
+                mainViewModel.setGetMyPostNull(true)
+            }
+        })
+
+    }
+
+    private fun initRecyclerView(){
+        binding.recentlyPostRecyclerView.showVertical(requireContext())
+        binding.recentlyPostRecyclerView.adapter = RecentlyRecyclerAdapter(mainViewModel)
+    }
 }

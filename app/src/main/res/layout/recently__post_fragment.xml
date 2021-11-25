@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -9,13 +10,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.AllPostFragment">
+        >
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/all_post_recycler_view"
+            android:id="@+id/recently_post_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            tools:listitem="@layout/recently_item"
             android:paddingTop="20dp" />
         <LinearLayout
             android:id="@+id/not_found"
@@ -39,5 +41,35 @@
                 android:includeFontPadding="false"
                 />
         </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/plus"
+                android:backgroundTint="@color/toolbar_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="20dp"
+                app:tint = "@color/white"
+                android:layout_marginEnd="20dp"
+                android:id="@+id/addPost"
+                />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/trophy"
+                app:layout_constraintRight_toLeftOf="@+id/addPost"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:backgroundTint="@color/toolbar_color"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="8dp"
+                android:id="@+id/go_rangking"
+                app:tint= "@color/white"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 </layout>

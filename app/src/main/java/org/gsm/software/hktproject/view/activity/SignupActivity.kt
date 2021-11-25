@@ -35,39 +35,68 @@ class SignupActivity : AppCompatActivity(), ViewModelStoreOwner {
         bind.activity = this
     }
 
-    fun signup() {
-        if (!checkEmaill()) {
-            Toast.makeText(this, "Email형식에 맞게 작성해주세요", Toast.LENGTH_SHORT).show()
-            Log.d(TAG, "signup: Email 체크\n${bind.signupEmail.toString()}")
-        }else if(checkNickName()){
-            Toast.makeText(this, "닉네임은 한글/영문만 사용해주세요", Toast.LENGTH_SHORT).show()
-            Log.d(TAG, "signup: 닉네임 체크")
-        } else{
-            viewmodel.register(
-                bind.signupEmail.toString(),
-                bind.signupPw.toString(),
-                bind.signupNickname.toString()
-            )
-            viewmodel.registerResponseInt.observe(this, Observer { it ->
-                if (it == "1") {
-                    val intent = Intent(this, Any::class.java)
-                    startActivity(intent)
-                } else if (it == "2") {
-                    viewmodel.registerResponse.observe(this, Observer {
-                        Log.d(TAG, "signup: ${it}")
-                    })
-                } else if (it == "3") {
-                    viewmodel.registerResponse.observe(this, Observer {
-                        Log.d(TAG, "signup: $it")
-                    })
-                } else {
-                    viewmodel.registerResponse.observe(this, Observer {
-                        Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
-                    })
-                }
+    fun goLogin(){
+        startActivity(Intent(this,LoginActivity::class.java))
+    }
 
-            })
-        }
+    fun idCheck() {
+        viewmodel.sameIdCheck(bind.signupEmail.text.toString())
+        viewmodel.check.observe(this, Observer {
+            if (it) {
+                viewmodel.checkResult.observe(this, Observer {
+                    Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
+                })
+            } else {
+                viewmodel.checkResult.observe(this, Observer {
+                    Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
+                })
+            }
+        })
+    }
+
+    fun nameCheck() {
+        viewmodel.sameIdCheck(bind.signupNickname.text.toString())
+        viewmodel.check.observe(this, Observer {
+            if (it) {
+                viewmodel.checkResult.observe(this, Observer {
+                    Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
+                })
+            } else {
+                viewmodel.checkResult.observe(this, Observer {
+                    Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
+                })
+            }
+        })
+    }
+
+    fun signup() {
+        viewmodel.register(
+            bind.signupEmail.text.toString(),
+            bind.signupPw.text.toString(),
+            bind.signupNickname.text.toString()
+        )
+
+        viewmodel.registerResponseInt.observe(this, Observer { it ->
+            if (it == "1") {
+                Toast.makeText(this, "회원가입 성공!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            } else if (it == "2") {
+                viewmodel.registerResponse.observe(this, Observer {
+                    Log.d(TAG, "signup: ${it}")
+                })
+            } else if (it == "3") {
+                viewmodel.registerResponse.observe(this, Observer {
+                    Log.d(TAG, "signup: $it")
+                })
+            } else {
+                viewmodel.registerResponse.observe(this, Observer {
+                    Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
+                })
+            }
+
+        })
+
 
     }
 
@@ -79,10 +108,10 @@ class SignupActivity : AppCompatActivity(), ViewModelStoreOwner {
         return p && email.length > 6
     }
 
-    fun checkNickName():Boolean{
+    fun checkNickName(): Boolean {
         val nickname = bind.signupNickname.toString().trim()
         val nameValidation = "^[a-zA-Z가-힣]*\$ "
-        val p = Pattern.matches(nameValidation,nickname)
+        val p = Pattern.matches(nameValidation, nickname)
         return p
     }
 

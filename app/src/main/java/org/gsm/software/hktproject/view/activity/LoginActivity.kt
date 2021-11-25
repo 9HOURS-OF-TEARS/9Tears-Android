@@ -31,12 +31,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun login() {
-        loginViewModel.login(bind.loginEmail.toString(), bind.loginPassword.toString())
+        loginViewModel.login(bind.email.text.toString(), bind.password.text.toString())
         loginViewModel.registerResponseInt.observe(this, Observer {
             if (it == 1) {
                 Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
             }else if(it == 2){
-                startActivity(Intent(this,Any::class.java))
+                startActivity(Intent(this,MainActivity::class.java))
             }
             else {
                 Log.d(TAG, "login: $it")

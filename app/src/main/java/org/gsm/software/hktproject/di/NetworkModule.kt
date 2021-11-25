@@ -4,6 +4,7 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.gsm.software.hktproject.BuildConfig
+import org.gsm.software.hktproject.model.users.PostApi
 import org.gsm.software.hktproject.model.users.UserApi
 import org.gsm.software.hktproject.viewmodel.LoginViewModel
 import org.gsm.software.hktproject.viewmodel.MainViewModel
@@ -12,6 +13,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 
@@ -25,12 +27,18 @@ val networkModule = module {
             .client(get())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+            .create(PostApi::class.java)
     }
     single {
-        get<Retrofit>().create(
-            UserApi::class.java
-        )
+        Retrofit.Builder()
+            .baseUrl(BuildConfig.BASE_URL2)
+            .client(get())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(UserApi::class.java)
     }
+
+
 
 }
 
