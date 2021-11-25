@@ -19,6 +19,7 @@ class Recently_Post : Fragment() {
     lateinit var binding: RecentlyPostFragmentBinding
     private val mainViewModel: MainViewModel by viewModel()
 
+
     private lateinit var viewModel: RecentlyPostViewModel
 
     override fun onCreateView(
@@ -42,16 +43,7 @@ class Recently_Post : Fragment() {
             binding.notFound.visibility = View.VISIBLE
         }
 
-        mainViewModel.getMyPostResponse.observe(requireActivity(), androidx.lifecycle.Observer {
-            //게시물 있음
-            if (!it.isEmpty) {
-                initRecyclerView()
-                mainViewModel.setGetMyPostNull(false)
-            } else {
-                //게시물 없음
-                mainViewModel.setGetMyPostNull(true)
-            }
-        })
+
 
     }
 

@@ -25,6 +25,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var headB: MainHeaderBinding
     private val mainViewModel : MainViewModel by viewModel()
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         slideInit()
         super.onCreate(savedInstanceState)
@@ -61,6 +64,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
+
     // menubar 생성
     private fun actionBar() {
         setSupportActionBar(binding.toolbar)
@@ -71,7 +75,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when(item.itemId){
           R.id.my_page-> {
-              startActivity(Intent(this,MyPageActivity::class.java))
+              startActivity(Intent(this,MypageActivity::class.java))
           }
           else -> {}
         }

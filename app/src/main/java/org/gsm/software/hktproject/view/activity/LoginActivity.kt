@@ -32,11 +32,15 @@ class LoginActivity : AppCompatActivity() {
 
     fun login() {
         loginViewModel.login(bind.email.text.toString(), bind.password.text.toString())
-        loginViewModel.registerResponseInt.observe(this, Observer {
+        loginViewModel.registerResponseInt.observe(this, Observer { it ->
             if (it == 1) {
                 Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
             }else if(it == 2){
-                startActivity(Intent(this,MainActivity::class.java))
+               loginViewModel.auth.observe(this, Observer {
+                   val intent = Intent(this,MainActivity::class.java)
+                   var fragment =
+                   startActivity(intent)
+               })
             }
             else {
                 Log.d(TAG, "login: $it")

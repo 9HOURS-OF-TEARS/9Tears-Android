@@ -8,13 +8,6 @@ import retrofit2.http.*
 
 interface UserApi {
 
-    @Headers("Accept: application/json")
-    @POST("auth")
-    fun login(
-        @Body userData : LoginRequest
-//        @Field("id") id : String,
-//        @Field("password") password : String
-    ):Call<LoginResponse>
 
     @POST("sign-up")
     fun register(

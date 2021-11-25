@@ -21,12 +21,15 @@ android {
     buildTypes {
 
         debug{
-            buildConfigField "String", "BASE_URL",'"https://118.67.142.221:8080/"'
+            buildConfigField "String", "BASE_URL",'"http://118.67.142.221:8080/"'
+            buildConfigField "String", "BASE_URL2",'"http://118.67.142.221:8081/"'
         }
 
         release {
-            buildConfigField "String", "BASE_URL",'"https://118.67.142.221:8080/"'
-            
+            buildConfigField "String", "BASE_URL",'"http://118.67.142.221:8080/"'
+            buildConfigField "String", "BASE_URL2",'"http://118.67.142.221:8081/"'
+
+
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -49,6 +52,8 @@ android {
 
 dependencies {
 
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.0.0'
     def lifecycle_version = "2.3.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
