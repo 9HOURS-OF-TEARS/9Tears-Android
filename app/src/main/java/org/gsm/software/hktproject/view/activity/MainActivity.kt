@@ -1,6 +1,6 @@
 package org.gsm.software.hktproject.view.activity
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.Window
+import android.widget.Toast
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayoutMediator
@@ -67,7 +68,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        TODO("Not yet implemented")
+
+        when(item.itemId){
+          R.id.my_page-> {
+              startActivity(Intent(this,MyPageActivity::class.java))
+          }
+          else -> {}
+        }
+        return false
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

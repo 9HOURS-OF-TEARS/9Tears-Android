@@ -5,24 +5,29 @@
 
     </data>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:src="@drawable/smile_sticker"
             android:id="@+id/smile_img" />
 
         <TextView
+            android:id="@+id/smile_cnt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFB800"
-            android:text="5"
             android:layout_below="@+id/smile_img"
-            android:layout_marginStart="14dp"
-            android:id="@+id/smile_cnt" />
+            android:layout_marginStart="34dp"
+            android:text="5"
+            android:textColor="#FFB800" />
 
         <TextView
             android:id="@+id/title"
@@ -119,4 +124,5 @@
 
 
     </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

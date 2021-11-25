@@ -1,10 +1,7 @@
 package org.gsm.software.hktproject.model.users
 
 import okhttp3.ResponseBody
-import org.gsm.software.hktproject.model.LoginRequest
-import org.gsm.software.hktproject.model.LoginResponse
-import org.gsm.software.hktproject.model.RegisterResponse
-import org.gsm.software.hktproject.model.RequestRegister
+import org.gsm.software.hktproject.model.*
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -33,4 +30,9 @@ interface UserApi {
     fun nameCheck(
         @Query("key") key : String
     ):Call<Void>
+
+    @GET("user/posts")
+    fun getMyPost(
+        @Header("Authorization") authorization : String
+    ):Call<MyPostResponse>
 }

@@ -48,18 +48,6 @@
             />
 
         <item
-            android:id="@+id/b6"
-            android:title=""
-            app:showAsAction="collapseActionView"
-            />
-
-        <item
-            android:id="@+id/b7"
-            android:title=""
-            app:showAsAction="collapseActionView"
-            />
-
-        <item
             android:id="@+id/logout"
             android:title="로그아웃"
             app:showAsAction="collapseActionView"
