@@ -1,8 +1,8 @@
 package org.gsm.software.hktproject.viewmodel
 
 import androidx.lifecycle.ViewModel
-import org.gsm.software.hktproject.retrofit.Api
+import org.gsm.software.hktproject.model.users.UserApi
 
-class MainViewModel(private val api : Api) :ViewModel() {
+class MainViewModel(private val api : UserApi) :ViewModel() {
 
 }

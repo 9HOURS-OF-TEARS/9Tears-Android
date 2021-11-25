@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="sign_text_color">#947BF5</color>
+    <color name="toolbar_color">#ADBAFB</color>
 </resources>
