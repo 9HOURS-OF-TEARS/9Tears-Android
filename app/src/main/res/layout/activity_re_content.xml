@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="writeactivity"
-            type="org.gsm.software.hktproject.view.activity.WriteContentActivity" />
+            name="recontentActivity"
+            type="org.gsm.software.hktproject.view.activity.ReContentActivity" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:id="@+id/drawerLayout"
-        tools:context=".view.activity.LankcommentActivity">
+        tools:context=".view.activity.ReContentActivity">
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigation_view"
@@ -28,7 +28,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.activity.WriteContentActivity">
+            tools:context=".view.activity.Re">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="글 작성하기"
+                        android:text="글 수정하기"
                         android:layout_gravity="center"
                         android:textColor="@color/white"
                         android:textSize="20sp"
@@ -66,34 +66,34 @@
             </LinearLayout>
 
 
-<EditText
-    android:id="@+id/write_title"
-    android:layout_width="260dp"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    android:layout_marginTop="70dp"
-    android:layout_marginStart="10dp"
-    android:hint="  제목을 입력해주세요"
-    android:background="@null"
-    android:maxLength="20"
-    app:layout_constraintStart_toStartOf="parent"/>
+            <EditText
+                android:id="@+id/re_title"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="70dp"
+                android:layout_marginStart="10dp"
+                android:hint="  제목을 입력해주세요"
+                android:background="@null"
+                android:maxLength="20"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-<androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/chkGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:button="@drawable/bg_round_checkbox_button"
-        cb_color="@color/black"
-        cb_pressed_ring_width="2dp"
-        android:focusable="false"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="270dp"
-        android:layout_marginTop="55dp" />
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/chkGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/bg_round_checkbox_button"
+                cb_color="@color/black"
+                cb_pressed_ring_width="2dp"
+                android:focusable="false"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="270dp"
+                android:layout_marginTop="55dp" />
 
 
             <TextView
-                android:id="@+id/content_nick"
+                android:id="@+id/recontent_nick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="익명"
@@ -109,24 +109,24 @@
                 android:layout_height="28dp"
                 android:background="@drawable/send"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="@id/content_nick"
+                app:layout_constraintStart_toStartOf="@id/recontent_nick"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="65dp"
                 />
 
-<ImageView
-    android:id="@+id/titlecover"
-    android:layout_width="match_parent"
-    android:layout_height="7dp"
-    android:background="@drawable/titledown"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/write_title"
-    android:layout_marginTop="10dp"/>
+            <ImageView
+                android:id="@+id/retitlecover"
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                android:background="@drawable/titledown"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/re_title"
+                android:layout_marginTop="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/titlecover"
+                app:layout_constraintTop_toBottomOf="@id/retitlecover"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="10dp"
                 android:hint="  내용을 입력해주세요"
